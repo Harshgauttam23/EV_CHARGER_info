@@ -16,14 +16,6 @@ def display_image(url):
     except Exception as e:
         st.error("Image could not be loaded. Please check the Image URL.")
 
-# Function to display the product PDF using an iframe
-def display_pdf(url):
-    try:
-        pdf_display = f'<iframe src="{url}" width="700" height="1000" type="application/pdf"></iframe>'
-        st.markdown(pdf_display, unsafe_allow_html=True)
-    except Exception as e:
-        st.error("PDF could not be loaded. Please check the PDF URL.")
-
 # Load data from Google Sheet (public URL)
 @st.cache_data
 def load_data():
@@ -57,9 +49,9 @@ if product:
     - **Dimensions**: {product_data['Dimensions']}
     """)
 
-    # Display PDF
+    # Display PDF link instead of the embedded PDF
     st.subheader(f"📄 {product} PDF Manual")
-    display_pdf(product_data['PDF URL'])
+    st.markdown(f"[Click here to view the PDF]({product_data['PDF URL']})", unsafe_allow_html=True)
 
 # Footer
 st.markdown("---")
