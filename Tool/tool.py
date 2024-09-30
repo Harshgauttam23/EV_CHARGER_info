@@ -52,7 +52,7 @@ if product:
     st.subheader(f"📋 {product} Specifications")
     
     st.markdown(f"""
-    - **Power**: {product_data['Power']}
+    - **Power**: {product_data['Power Rating']}
     - **Voltage**: {product_data['Voltage']}
     - **Dimensions**: {product_data['Dimensions']}
     """)
